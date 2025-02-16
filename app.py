@@ -38,7 +38,7 @@ if "chat_store" not in st.session_state:
     st.session_state["chat_store"] = {}
 
 # Initialize Embeddings
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", huggingfacehub_api_token=st.secrets["HUGGING_FACE_TOKEN"])
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", token=st.secrets["HUGGING_FACE_TOKEN"])
 
 # Initialize Language Model
 llm = ChatGroq(
