@@ -27,7 +27,7 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 
 # Initialize Streamlit App
-st.title("Mel's RAG Bot")
+st.title("File Assistant")
 
 # Generate a unique session ID for each user
 if "session_id" not in st.session_state:
