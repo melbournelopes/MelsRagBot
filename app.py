@@ -29,7 +29,7 @@ class app:
         self.CHUNK_OVERLAP = 200
 
         # Initialize Embeddings
-        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", huggingfacehub_api_token=st.secrets["HUGGING_FACE_TOKEN", None])
+        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", huggingfacehub_api_token=st.secrets["HUGGING_FACE_TOKEN"])
 
         # Initialize Language Model
         self.llm = ChatGroq(groq_api_key=st.secrets["GROQ_API_KEY"],
