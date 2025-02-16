@@ -24,9 +24,6 @@ class app:
         # Load environment variables
         load_dotenv()
 
-        st.write("Secrets available:", st.secrets)
-        st.write("HUGGING_FACE_TOKEN exists:", "HUGGING_FACE_TOKEN" in st.secrets)
-
         # Constants
         self.CHUNK_SIZE = 1000
         self.CHUNK_OVERLAP = 200
