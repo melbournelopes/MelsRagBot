@@ -21,11 +21,19 @@ jobs:
           git config --global user.email "your-email@example.com"
           git config --global user.name "your-github-username"
 
-      - name: Authenticate and Push to Hugging Face
+      - name: Add Hugging Face remote
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           git remote add hf https://user:$HF_TOKEN@huggingface.co/spaces/melbournelopes/File_Assistant || true
           git fetch hf main
-          git merge --strategy-option=theirs hf/main || true
-          git push hf main
+
+      - name: Merge Hugging Face history (Allow Unrelated Histories)
+        run: |
+          git merge --allow-unrelated-histories hf/main || true
+
+      - name: Force Push to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          git push hf main --force
