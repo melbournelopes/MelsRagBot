@@ -19,7 +19,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
 
-class ConversationalRAGBot:
+class app:
     def __init__(self):
         # Load environment variables
         load_dotenv()
@@ -164,5 +164,5 @@ class ConversationalRAGBot:
 
 # Instantiate and run the bot
 if __name__ == "__main__":
-    bot = ConversationalRAGBot()
+    bot = app()
     bot.run()
