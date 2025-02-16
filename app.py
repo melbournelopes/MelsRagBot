@@ -40,7 +40,7 @@ if "chat_store" not in st.session_state:
 # Initialize Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-# Initialize LLM
+# Initialize Language Model
 llm = ChatGroq(
     groq_api_key=st.secrets["GROQ_API_KEY"],
     model_name="Gemma2-9b-It",
