@@ -10,11 +10,28 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Fetch full history
           lfs: true
-      - name: Push to hub
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "your-email@example.com"
+          git config --global user.name "your-github-username"
+
+      - name: Add Hugging Face remote
+        run: |
+          git remote add hf https://melbournelopes:$HF_TOKEN@huggingface.co/spaces/melbournelopes/File_Assistant || true
+          git fetch hf main
+
+      - name: Merge Hugging Face changes
+        run: |
+          git merge --strategy-option=theirs hf/main || true
+
+      - name: Push to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://melbournelopes:$HF_TOKEN@huggingface.co/spaces/melbournelopes/File_Assistant main
+        run: |
+          git push hf main
