@@ -27,7 +27,7 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 
 # Initialize Streamlit App
-st.title("Conversational RAG Bot")
+st.title("Mel's RAG Bot")
 
 # Generate a unique session ID for each user
 if "session_id" not in st.session_state:
@@ -142,4 +142,3 @@ if uploaded_files:
             config={"configurable": {"session_id": st.session_state["session_id"]}}
         )
         st.write("Assistant:", response["answer"])
-        st.write("Chat History:", session_history.messages)
