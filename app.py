@@ -29,10 +29,10 @@ class app:
         self.CHUNK_OVERLAP = 200
 
         # Initialize Embeddings
-        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", huggingfacehub_api_token=streamlit.secrets["HUGGING_FACE_TOKEN"])
+        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", huggingfacehub_api_token=st.secrets["HUGGING_FACE_TOKEN"])
 
         # Initialize Language Model
-        self.llm = ChatGroq(groq_api_key=streamlit.secrets["GROQ_API_KEY"],
+        self.llm = ChatGroq(groq_api_key=st.secrets["GROQ_API_KEY"],
                             model_name="Gemma2-9b-It",
                             max_tokens=512  # Limit response size
                             )
