@@ -33,7 +33,7 @@ class FileAssistant:
 
         # Initialize Language Model
         self.llm = ChatGroq(
-            groq_api_key=st.secrets["API_KEY"],
+            groq_api_key=st.secrets["GROQ_API_KEY"],
             model_name="Gemma2-9b-It",
             max_tokens=512  # Limit response size
         )
